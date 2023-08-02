@@ -1,0 +1,42 @@
+/*!
+       * Determine if an object is a Buffer
+       *
+       * @author   Feross Aboukhadijeh <https://feross.org>
+       * @license  MIT
+       */
+
+/*!
+     * mi18n - https://github.com/Draggable/mi18n
+     * Version: 0.4.7
+     * Author: Kevin Chappell <kevin.b.chappell@gmail.com> (http://kevin-chappell.com)
+     */
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * jQuery formBuilder: https://formbuilder.online/
+ * Version: 3.6.1
+ * Author: Kevin Chappell <kevin.b.chappell@gmail.com>
+ */
+
+/*!
+ * jQuery formRender: https://formbuilder.online/
+ * Version: 3.6.1
+ * Author: Kevin Chappell <kevin.b.chappell@gmail.com>
+ */
+
+/*!
+ * mi18n - https://github.com/Draggable/mi18n
+ * Version: 0.4.7
+ * Author: Kevin Chappell <kevin.b.chappell@gmail.com> (http://kevin-chappell.com)
+ */
+
+/*! jQuery UI - v1.12.0 - 2016-08-17
+* http://jqueryui.com
+* Includes: widget.js, data.js, scroll-parent.js, widgets/sortable.js, widgets/mouse.js
+* Copyright jQuery Foundation and other contributors; Licensed MIT */

@@ -1,0 +1,175 @@
+
+:root {
+  --color-uno: #AA53FF;
+  --color-dos: #7200EA;
+  --color-tres: #961FFF;
+  --color-cuatro: #5B00BC;
+  --color-cinco: #7B00FF;
+  --color-seis: #490091;
+  --color-siete: #152F4E;
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+ html {
+  height: 100%;
+
+}
+
+.login-body
+{
+  padding: 30px;
+}
+
+
+.bg {
+  /* The image used */
+  background-image: url("/img/cafeto-bg.png");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.social-link {
+   color: #fb7500;
+
+}
+
+.nav-link-unisono {
+   color:  var(--color-seis) !important;
+   display: block;
+  position: relative;
+  padding: .5rem 1rem;
+}
+
+
+.navbar-login{
+   display: block !important;
+}
+
+.navbar-login li{
+   float: left !important;
+}
+
+.logo-unisono
+{
+ max-width: 350px;
+}
+
+.logo-avanciencia
+{
+  max-width: 190px;
+  padding: 0 0 30px 20px;
+}
+
+
+.card-title-social
+{
+    color: #fb7500;
+    float: left;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+.btn-social {
+    color: #fff;
+    background-color: var(--color-siete);
+    border-color: var(--color-siete);
+    box-shadow: none;
+    padding-left: 10px;
+}
+
+.btn-social:hover, .btn-social:focus, .btn-social:active, .btn-social.active, .open>.dropdown-toggle.btn-social {
+    color: #fff;
+    background-color: var(--color-seis);
+    border-color: var(--color-seis); /*set the color you want here*/
+}
+
+
+
+
+
+[class*="sidebar-light-"] .sidebar a {
+    color: #132E4E;
+}
+
+a {
+    color: #132E4E;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.bg-social-blue {
+    background-color: #132E4E !important;
+    color: #fff;
+}
+
+
+.brand-link .brand-image {
+    float: none;
+    line-height: .8;
+    margin-left: .4rem;
+    margin-right: .5rem;
+    margin-top: -3px;
+    max-height: 50px;
+    width: auto;
+}
+
+[class*="sidebar-blue-"] {
+    background-color: #173152;
+}
+
+.sidebar-dark-blue{
+  background: #173152 !important;
+}
+
+.h-5 {
+    width: 10px !important;
+}
+.w-5 {
+    width: 10px !important;
+}
+
+.card-purple.card-outline {
+    border-top: 3px solid #3f0974;
+}
+
+.signature canvas{
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+}
+.celda-popup{
+    display: none;
+}
+.alignment-center{
+    text-align: center;
+}
