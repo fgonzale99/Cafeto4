@@ -42,7 +42,7 @@ class BaseController extends Controller
 
     }
  
-
+ 
     /**
 
      * return error response.
