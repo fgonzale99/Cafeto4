@@ -9,6 +9,8 @@ use App\Models\ProjectReview;
 use Validator;
 use App\Http\Resources\ProjectReview as ProjectReviewResource;
 
+use App\Filters\V1\ProjectReviewFilter;
+
 class ProjectReviewController extends BaseController
 {
 
@@ -22,7 +24,7 @@ class ProjectReviewController extends BaseController
 
      */
 
-     public function index()
+     public function index_bak()
 
      {
  
@@ -34,6 +36,34 @@ class ProjectReviewController extends BaseController
  
      }
  
+
+
+     public function index(Request $request)
+     {
+
+ 
+ 
+         $filter = new ProjectReviewFilter();
+         $queryItems = $filter->transform($request); //[['column','operator','value']]
+ 
+ 
+          if (count($queryItems) == 0 )
+          {
+ 
+             $ProjectReview = ProjectReview::paginate();
+             return $this->sendResponse(ProjectReviewResource::collection($ProjectReview), 'Forms retrieved successfully.');
+ 
+          }
+          else
+          {
+             $ProjectReview =    ProjectReview::where($queryItems)->paginate();
+ 
+             return $this->sendResponse(ProjectReviewResource::collection($ProjectReview), 'Forms retrieved successfully.');
+ 
+          }
+         
+         
+     }
      /**
  
       * Store a newly created resource in storage.

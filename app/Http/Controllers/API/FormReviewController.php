@@ -9,6 +9,9 @@ use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\FormReview;
 use Validator;
 use App\Http\Resources\FormReview as FormReviewResource;
+use App\Filters\V1\FormReviewFilter;
+
+
 class FormReviewController extends BaseController
 
 {
@@ -23,7 +26,7 @@ class FormReviewController extends BaseController
 
      */
 
-    public function index()
+    public function index_bak()
 
     {
 
@@ -33,7 +36,37 @@ class FormReviewController extends BaseController
 
         return $this->sendResponse(FormReviewResource::collection($formReview), 'Forms retrieved successfully.');
 
+    
     }
+
+    public function index(Request $request)
+    {
+
+
+
+        $filter = new FormReviewFilter();
+        $queryItems = $filter->transform($request); //[['column','operator','value']]
+
+
+         if (count($queryItems) == 0 )
+         {
+
+            $formReview = FormReview::paginate();
+            return $this->sendResponse(FormReviewResource::collection($formReview), 'Forms retrieved successfully.');
+
+         }
+         else
+         {
+            $formReview =    FormReview::where($queryItems)->paginate();
+
+            return $this->sendResponse(FormReviewResource::collection($formReview), 'Forms retrieved successfully.');
+
+         }
+        
+        
+    }
+
+
 
     /**
 
@@ -109,11 +142,7 @@ class FormReviewController extends BaseController
             return $this->sendError('Form not found.');
 
         }
-
-   
-
         return $this->sendResponse(new FormReviewResource($formReview), 'Form retrieved successfully.');
-
     }
 
     

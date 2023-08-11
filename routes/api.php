@@ -25,14 +25,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', [App\Http\Controllers\API\RegisterController::class, 'register']);
 
-Route::post('login', [App\Http\Controllers\APi\RegisterController::class, 'login']);
+Route::post('login', [App\Http\Controllers\API\RegisterController::class, 'login']);
 
    
 
 Route::middleware('auth:api')->group( function () {
   
-    Route::resource('FormReview', 'App\Http\Controllers\APi\FormReviewController');
-    Route::resource('ProjectReview', 'App\Http\Controllers\APi\ProJectReviewController');
+    Route::resource('FormReview', 'App\Http\Controllers\API\FormReviewController');
+    Route::resource('ProjectReview', 'App\Http\Controllers\API\ProjectReviewController');
 
 
 });

@@ -778,7 +778,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\Sites\\cafeto4\\storage\\framework/cache/data',
+        'path' => '/Users/apple/Documents/GitHub/Cafeto4/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -962,7 +962,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => 'D:\\Sites\\cafeto4\\storage\\debugbar',
+      'path' => '/Users/apple/Documents/GitHub/Cafeto4/storage/debugbar',
       'connection' => NULL,
       'provider' => '',
       'hostname' => '127.0.0.1',
@@ -1090,12 +1090,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Sites\\cafeto4\\storage\\app',
+        'root' => '/Users/apple/Documents/GitHub/Cafeto4/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Sites\\cafeto4\\storage\\app/public',
+        'root' => '/Users/apple/Documents/GitHub/Cafeto4/storage/app/public',
         'url' => 'https://cafeto.cimaonline.com.co//storage',
         'visibility' => 'public',
       ),
@@ -1112,12 +1112,12 @@
       'root' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Sites\\cafeto4',
+        'root' => '/Users/apple/Documents/GitHub/Cafeto4',
       ),
     ),
     'links' => 
     array (
-      'D:\\Sites\\cafeto4\\public\\storage' => 'D:\\Sites\\cafeto4\\storage\\app/public',
+      '/Users/apple/Documents/GitHub/Cafeto4/public/storage' => '/Users/apple/Documents/GitHub/Cafeto4/storage/app/public',
     ),
   ),
   'gravatar' => 
@@ -1163,13 +1163,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\Sites\\cafeto4\\storage\\logs/laravel.log',
+        'path' => '/Users/apple/Documents/GitHub/Cafeto4/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\Sites\\cafeto4\\storage\\logs/laravel.log',
+        'path' => '/Users/apple/Documents/GitHub/Cafeto4/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -1220,7 +1220,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\Sites\\cafeto4\\storage\\logs/laravel.log',
+        'path' => '/Users/apple/Documents/GitHub/Cafeto4/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -1277,7 +1277,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\Sites\\cafeto4\\resources\\views/vendor/mail',
+        0 => '/Users/apple/Documents/GitHub/Cafeto4/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -1432,7 +1432,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\Sites\\cafeto4\\storage\\framework/sessions',
+    'files' => '/Users/apple/Documents/GitHub/Cafeto4/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -1452,9 +1452,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\Sites\\cafeto4\\resources\\views',
+      0 => '/Users/apple/Documents/GitHub/Cafeto4/resources/views',
     ),
-    'compiled' => 'D:\\Sites\\cafeto4\\storage\\framework\\views',
+    'compiled' => '/Users/apple/Documents/GitHub/Cafeto4/storage/framework/views',
   ),
   'flare' => 
   array (
@@ -1521,7 +1521,7 @@
   'livewire' => 
   array (
     'class_namespace' => 'App\\Http\\Livewire',
-    'view_path' => 'D:\\Sites\\cafeto4\\resources\\views/livewire',
+    'view_path' => '/Users/apple/Documents/GitHub/Cafeto4/resources/views/livewire',
     'layout' => 'layouts.app',
     'asset_url' => NULL,
     'app_url' => NULL,
