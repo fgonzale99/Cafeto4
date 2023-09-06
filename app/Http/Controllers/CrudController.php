@@ -523,7 +523,6 @@ class CrudController extends Controller
 
       $indexColumn = 1;
       foreach ($moduleFields as $keyField => $valueField) {
-
         $valorCelda = "";
         if ($valueField['show'] == "true" && $valueField['type'] != "file" && isset($valueField['name'])) {
 
@@ -538,11 +537,16 @@ class CrudController extends Controller
             case 'checkbox-group':
               $valorCelda = $value->{$valueField['name']};
               break;
-            case 'select':
-              if (isset($valueField['origin']) && $valueField['origin'] == "model") {
+           case 'select':
+           
+             if (isset($valueField['origin']) && $valueField['origin'] == "model") {
+              if(is_object($value->{$valueField['alias']}))
+              {
                 $valorCelda = $value->{$valueField['alias']}->{$valueField['fieldOrigin']};
+              }
+                
               } else {
-                $valorCelda = $value->{$valueField['name']};
+                 $valorCelda = $value->{$valueField['name']};
               }
               break;
             default:

@@ -24,18 +24,6 @@ class ProjectReviewController extends BaseController
 
      */
 
-     public function index_bak()
-
-     {
- 
-         $ProjectReview = ProjectReview::all();
- 
-     
- 
-         return $this->sendResponse(ProjectReviewResource::collection($ProjectReview), 'Forms retrieved successfully.');
- 
-     }
- 
 
 
      public function index(Request $request)
@@ -64,18 +52,8 @@ class ProjectReviewController extends BaseController
          
          
      }
-     /**
- 
-      * Store a newly created resource in storage.
- 
-      *
- 
-      * @param  \Illuminate\Http\Request  $request
- 
-      * @return \Illuminate\Http\Response
- 
-      */
- 
+
+     
      public function store(Request $request)
  
      {
