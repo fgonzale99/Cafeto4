@@ -27,10 +27,11 @@ class FormReviewFilter extends ApiFilter {
     protected $operatorMap = [
         'eq' => '=',
         'lt' => '<',
-        'lte' => '>',
-        'gt' => '<=',
+        'lte' => '>=',
+        'gt' => '>',
         'gte' => '>=',
-        'lk' => 'like'
+        'lk' => 'like',
+        'ne' => '!=',
 
     ];
 

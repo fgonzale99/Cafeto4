@@ -33,6 +33,11 @@ public function transform(Request $request)
         {
             if (isset($query[$operator]))
             {
+                if($this->operatorMap[$operator]=='like')
+                {
+                    $query[$operator]='%'.$query[$operator].'%';
+                }
+                
              $eloQuery[]   = [$column, $this->operatorMap[$operator], $query[$operator]];
             }
         }

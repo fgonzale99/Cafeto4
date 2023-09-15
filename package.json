@@ -35,7 +35,7 @@
         "bs-stepper": "^1.7.0",
         "chart.js": "^3.4.0",
         "dompurify": "^2.2.9",
-        "formBuilder": "^3.7.2",
+        "formBuilder": "^3.10.0",
         "grunt": "^1.4.1",
         "grunt-cli": "^1.4.3",
         "html-react-parser": "^1.2.7",

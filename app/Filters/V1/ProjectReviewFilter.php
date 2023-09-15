@@ -29,8 +29,8 @@ class ProjectReviewFilter extends ApiFilter {
     protected $operatorMap = [
         'eq' => '=',
         'lt' => '<',
-        'lte' => '>',
-        'gt' => '<=',
+        'lte' => '>=',
+        'gt' => '>',
         'gte' => '>=',
         'lk' => 'like',
         'ne' => '!=',
