@@ -102,10 +102,10 @@ class FormReviewController extends Controller
      
       $results=\App\Models\Project::select(['*'])->where('process',$process_id)->where('formReview','!=',$form_id)->count();
    
+      return 0;
 
 
-
-      return $results;
+   //   return $results;
     }
 
 
@@ -132,7 +132,7 @@ class FormReviewController extends Controller
         if(isset($form_item->label))
         {
           //elimina saltos de linea
-          $form_item->label = str_replace(array("\n","\r"), '', $form_item->label);
+          $form_item->label = str_replace(array("\n","\r","\t"), '', $form_item->label);
           
           //elimina tags indeseados
           $form_item->label = strip_tags($form_item->label,['<b>','<strong>','<p>','<h1>','<span>']);

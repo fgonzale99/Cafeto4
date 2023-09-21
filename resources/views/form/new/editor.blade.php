@@ -75,11 +75,7 @@
 
 
 </script>
-
-<div id="fb-editor"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+<script src="/js/form-builder-new/form-builder.min.js"></script>
 
 <script>
   jQuery(function($) {
@@ -98,7 +94,7 @@
           number: {
             min: {
               label: 'Min',
-              value: '0',
+              value: 1,
             },
             max: {
               label: 'Max',
@@ -109,7 +105,7 @@
               label: 'ponderación',
               value: '1',
             },
-             label: 'Número'
+            //  label: 'Número'
           },
           text: {
             minlength: {
