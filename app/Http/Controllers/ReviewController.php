@@ -1462,7 +1462,8 @@ class ReviewController extends Controller
 
       $mpdf = new \Mpdf\Mpdf([
         'setAutoTopMargin' => 'stretch',
-   //     'autoMarginPadding' => 5
+        'setAutoBottomMargin' => 'pad',
+
     ]);
     
 
