@@ -261,7 +261,7 @@ class CustomerController extends Controller
     }
 
     $resultados = DB::table('projectReview', 'p')
-                ->selectRaw('users.name as evaluador,users.email as email, process.customer,customer.name,p.process,process.name as proceso,p.project,
+                ->selectRaw('p.id as reviewId, users.name as evaluador,users.email as email, process.customer,customer.name,p.process,process.name as proceso,p.project,
                             projects.name as proyecto,p.assignDate,p.reviewDate,p.daysLimit,
                             TIMESTAMPDIFF(day,p.assignDate,p.reviewDate)/p.daysLimit*100 as desviacion,
                             TIMESTAMPDIFF(day,p.assignDate,NOW())/p.daysLimit*100 as desviacion2,

@@ -177,7 +177,7 @@ const getRevisiones = async e => {
             <th scope="col" class="celda-popup">Proyecto</th>
             <th scope="col" style="text-align: center">Proyecto_ID</th>-->
             
-
+            <th scope="col" style="text-align: left">Id</th>
             <th scope="col" style="text-align: left">Proceso</th>
             <th scope="col" style="text-align: left">Proyecto</th>
             <th scope="col" style="text-align: left">Evaluador</th>
@@ -198,6 +198,7 @@ const getRevisiones = async e => {
           
             resultados += `
                 <tr>
+                <td class="">${revision.reviewId}</td>
               <!--   <td class="celda-popup">${revision.name}</td>
                   <td class="alignment-center">
                       <a href="#" class="verNombre" data-toggle="modal" data-target="#textModal">${revision.customer}</a>
