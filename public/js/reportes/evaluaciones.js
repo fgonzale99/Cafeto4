@@ -223,7 +223,7 @@ const getRevisiones = async e => {
                   <td class="alignment-center">${revision.estadoRevision}</td>
                   <td class="alignment-center">${revision.paymentState}</td>
                   <td class="alignment-center">
-                      <a href="#"><i class="fa fa-chart-bar"></i></a>
+                      <a href="https://cafeto.cimaonline.com.co/review/reportcustom2/${revision.reviewId}" target="_blank"><i class="fa fa-chart-bar"></i></a>
                   </td>
                 </tr>
                         `
