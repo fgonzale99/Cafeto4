@@ -699,7 +699,6 @@ class ReviewController extends Controller
 
           $this->notify($notification);
           $this->reviewLog($notification);
-
           $response['success'] = true;
 
         } catch (\Exception $e) {
