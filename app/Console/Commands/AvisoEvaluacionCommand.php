@@ -41,9 +41,7 @@ class AvisoEvaluacionCommand extends Command
 
      public function mailSend($postArray)
      {
-   
-       //$notificacion = \App\Models\Mail::where('accion', 'like', $postArray['action'])->where('state', '=', 'Activo')->first();
-   
+
        if($postArray){
    
          $emails = array();
@@ -61,6 +59,28 @@ class AvisoEvaluacionCommand extends Command
    
        return $postArray;
      }
+
+
+
+
+     public function notify($data)
+     {
+       $insert['name'] = 'recordatorio de Evaluación '.$data['aviso'];
+       $insert['message'] = $data['message'];
+       $insert['model'] = 'Evaluacions';
+       $insert['event'] = 'recordatorio de Evaluación '.$data['aviso'];
+       $insert['elementId'] = $data['elementId'];
+       $insert['date'] = date('Y-m-d');
+       $insert['user'] =  $data['user_id'];
+ 
+       $className = "\App\Models\Notification";
+       $element = ("{$className}::create")($insert);
+
+       return $element->id;
+
+     }
+
+
 
      
 
@@ -107,7 +127,11 @@ class AvisoEvaluacionCommand extends Command
         foreach($dataset as $key => $record)
         {
               $nombre=$record->getReviewer->name;
-              $email=$record->getReviewer->email;
+          //    $email=$record->getReviewer->email;
+
+
+              $email='fgonzale99@gmail.com';
+
               $project_name=$record->getProject->name;
               $due_date=date('d \d\e M \d\e Y', strtotime($record->assignDate .' + '.$record->daysLimit.' days'));
               $eval_url=env('APP_URL').'reviewer/projects?model=evaluaciones';
@@ -116,6 +140,10 @@ class AvisoEvaluacionCommand extends Command
               $notification['subject'] = 'Avanciencia-Cafeto recordatorio';
 
               $notification['elementId'] = $record->id;
+              $notification['user_id'] =$record->getReviewer->id;
+
+
+
               $notification['message'] = "$style <div class='content'><img  width=150 src='https://avanciencia.org/sites/default/files/logoHAvanciencia_2.png'><br>";
               $notification['message'] .= "<br><br><strong>$nombre</strong>, recuerde que la evaluación de <br>
               <strong>$project_name</strong>,<br> debe finalizarla antes del $due_date
@@ -125,6 +153,18 @@ class AvisoEvaluacionCommand extends Command
               $notification['message'] .= "<br><br><br><br><br><br><br><img alt='Cafeto logo' class='img-fluid logo-cafeto' width=150 src='https://cafeto.cimaonline.com.co//img/cafeto_logo.jpg'></div>";
 
               $notification['emails'] = [$email];
+
+            
+
+
+              $notification['aviso'] = $primer_aviso;
+            
+      
+              $notification_id=$this->notify($notification);
+
+
+              $notification['message'] .= "<img src='" .env('APP_URL'). "transparent_pixel/".$notification_id."'>";
+
 
 
               $this->mailSend($notification);
@@ -138,7 +178,12 @@ class AvisoEvaluacionCommand extends Command
         foreach($dataset as $key => $record)
         {
               $nombre=$record->getReviewer->name;
-              $email=$record->getReviewer->email;
+      //        $email=$record->getReviewer->email;
+
+              $email='fgonzale99@gmail.com';
+
+
+
               $project_name=$record->getProject->name;
               $due_date=date('d \d\e M \d\e Y', strtotime($record->assignDate .' + '.$record->daysLimit.' days'));
               $eval_url=env('APP_URL').'reviewer/projects?model=evaluaciones';
@@ -147,6 +192,9 @@ class AvisoEvaluacionCommand extends Command
               $notification['subject'] = 'Avanciencia-Cafeto debe finalizar hoy su evaluación';
 
               $notification['elementId'] = $record->id;
+              $notification['user_id'] =$record->getReviewer->id;
+
+              
               $notification['message'] = "$style <div class='content'><img  width=150 src='https://avanciencia.org/sites/default/files/logoHAvanciencia_2.png'><br>";
               $notification['message'] .= "<br><br><strong>$nombre</strong>, recuerde que la evaluación de <br>
               <strong>$project_name</strong>,<br> debe finalizarla <strong>hoy $due_date</strong>
@@ -157,7 +205,16 @@ class AvisoEvaluacionCommand extends Command
 
               $notification['emails'] = [$email];
 
+          
 
+              $notification['aviso'] = $segundo_aviso;
+            
+      
+              $notification_id=$this->notify($notification);
+
+              $notification['message'] .= "<img src='".env('APP_URL')."transparent_pixel/".$notification_id."'>";
+
+              
               $this->mailSend($notification);
         }
 

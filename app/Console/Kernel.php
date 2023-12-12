@@ -27,8 +27,15 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
 
-        $schedule->command('aviso:evaluacion')->daily()->withoutOverlapping();
+        $schedule->command('aviso:evaluacion')->everyFiveMinutes()->withoutOverlapping();
 
+
+      $schedule->call(function() {
+        echo '<strong>sssssss</strong>';
+        return 'hello';
+    })
+    ->everyFiveMinutes()
+    ->emailOutputTo('fgonzale99@gmail.com');
 
 
 

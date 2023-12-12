@@ -94,7 +94,7 @@ class Page extends React.Component {
       e.preventDefault()
         var data = $("#formReview").serializeArray();
 
-        exist
+    
         const res = await reviewServices.savePage(data, this.state.moduleData);
 
         if (res.success) {

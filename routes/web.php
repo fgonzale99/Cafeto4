@@ -18,6 +18,13 @@ use App\Http\Livewire\ShowProcesses;
 
 Auth::routes();
 
+
+  Route::get('transparent_pixel/{notification_id}', [App\Http\Controllers\pixelController::class, 'transparent_pixel'])->name('transparent_pixel');
+
+
+
+
+
 Route::get('pages/{page}/{subs?}', ['uses' => '\App\Http\Controllers\PageController@index'])
     ->where(['page' => '^(((?=(?!admin))(?=(?!\/)).))*$', 'subs' => '.*']);
 

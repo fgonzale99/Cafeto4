@@ -3621,10 +3621,9 @@ var Page = /*#__PURE__*/function (_React$Component) {
               case 0:
                 e.preventDefault();
                 data = $("#formReview").serializeArray();
-                exist;
-                _context3.next = 5;
+                _context3.next = 4;
                 return _review_Services__WEBPACK_IMPORTED_MODULE_4__["default"].savePage(data, this.state.moduleData);
-              case 5:
+              case 4:
                 res = _context3.sent;
                 if (res.success) {
                   pages = this.state.pages;
@@ -3642,7 +3641,7 @@ var Page = /*#__PURE__*/function (_React$Component) {
                 } else {
                   alert(res.message);
                 }
-              case 7:
+              case 6:
               case "end":
                 return _context3.stop();
             }
