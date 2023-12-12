@@ -94,6 +94,7 @@ class Page extends React.Component {
       e.preventDefault()
         var data = $("#formReview").serializeArray();
 
+        exist
         const res = await reviewServices.savePage(data, this.state.moduleData);
 
         if (res.success) {
@@ -127,6 +128,7 @@ class Page extends React.Component {
 
   render() {
 
+
     var header = [];
     var content = [];
     var cardContent = [];
@@ -157,6 +159,19 @@ class Page extends React.Component {
       title: 'Evaluación Documento',
       breadcrumb: breadData,
     };
+
+
+    if(this.state.reviewData.state == "Inactivo"){
+      alert('No ha aceptado la evaluación');
+
+
+      var redirect= '/review/start/' + this.state.reviewData.id;
+      window.location.href = redirect;
+
+
+      return false;
+    }
+
 
     const headerElement = <Header data={ headerContent }/>;
     header.push(headerElement);

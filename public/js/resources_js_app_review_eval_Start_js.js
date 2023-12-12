@@ -3529,7 +3529,8 @@ var Start = /*#__PURE__*/function (_React$Component) {
               case 0:
                 pages = _this.state.pages;
                 nextPage = pages[0].page;
-                redirect = '/review/form/' + _this.state.moduleData.id + '/' + nextPage;
+                redirect = '/review/form/' + _this.state.moduleData.id + '/' + nextPage; //vuelve al inicio autenticado
+                // var redirect = '/review/start/' + this.state.moduleData.id;
                 window.location.href = redirect;
               case 4:
               case "end":
@@ -3643,39 +3644,50 @@ var Start = /*#__PURE__*/function (_React$Component) {
     key: "startReview",
     value: function () {
       var _startReview = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(e) {
-        var form, data, res, pages, nextPage, reviewAccept, redirect;
+        var form, data, allChecked, res, pages, nextPage, reviewAccept, redirect;
         return _regeneratorRuntime().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 e.preventDefault();
                 form = document.getElementById("formAccept");
-                data = new FormData(form);
-                _context4.next = 5;
+                data = new FormData(form); //verifica que haya aceptado todas las condiciones
+                allChecked = Array.from(form.querySelectorAll('input[type="checkbox"]')).every(function (checkbox) {
+                  return checkbox.checked;
+                });
+                if (allChecked) {
+                  _context4.next = 7;
+                  break;
+                }
+                alert('Por favor marque todas las opciones antes de aceptar');
+                return _context4.abrupt("return");
+              case 7:
+                _context4.next = 9;
                 return _crud_Services__WEBPACK_IMPORTED_MODULE_1__["default"].update(data, this.state.moduleData);
-              case 5:
+              case 9:
                 res = _context4.sent;
                 if (!res.success) {
-                  _context4.next = 15;
+                  _context4.next = 19;
                   break;
                 }
                 pages = this.state.pages;
                 nextPage = pages[0].page;
-                _context4.next = 11;
+                _context4.next = 15;
                 return _review_Services__WEBPACK_IMPORTED_MODULE_3__["default"].reviewAccept(this.props.match.params.id);
-              case 11:
+              case 15:
                 reviewAccept = _context4.sent;
                 if (nextPage) {
-                  redirect = '/review/form/' + this.state.moduleData.id + '/' + nextPage;
+                  //        var redirect = '/review/form/' + this.state.moduleData.id + '/' + nextPage;
+                  redirect = '/review/start/' + this.state.moduleData.id;
                   window.location.href = redirect;
                 } else {
                   alert(res.message);
                 }
-                _context4.next = 16;
+                _context4.next = 20;
                 break;
-              case 15:
+              case 19:
                 alert(res.message);
-              case 16:
+              case 20:
               case "end":
                 return _context4.stop();
             }
@@ -3769,7 +3781,7 @@ var Start = /*#__PURE__*/function (_React$Component) {
         content: displayContent
       });
       contentCard.push(display);
-      var processData = {
+      var noAcceptProcessData = {
         fields: [{
           "type": "select",
           "required": true,
@@ -3791,7 +3803,10 @@ var Start = /*#__PURE__*/function (_React$Component) {
           "fieldOrigin": "name",
           "alias": "getProcess",
           "values": []
-        }, {
+        }]
+      };
+      var AcceptProcessData = {
+        fields: [{
           "type": "file",
           "required": false,
           "label": "Documento Evaluación",
@@ -3810,15 +3825,16 @@ var Start = /*#__PURE__*/function (_React$Component) {
           "order": 0
         }]
       };
-      var displayContentProcess = {
-        fields: processData.fields,
-        data: this.state.reviewData.values.get_project
-      };
-      var displayProcess = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_general_Displaycolumns__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        content: displayContentProcess
-      });
-      contentCard.push(displayProcess);
       if (this.state.reviewData.values.state == 'Inactivo') {
+        var processData = noAcceptProcessData;
+        var displayContentProcess = {
+          fields: processData.fields,
+          data: this.state.reviewData.values.get_project
+        };
+        var displayProcess = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_general_Displaycolumns__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          content: displayContentProcess
+        });
+        contentCard.push(displayProcess);
         contentCard.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h5", {
           children: "Recuerde que para inicar la evaluaci\xF3n debe aceptar los t\xE9rminos y condiciones."
         }));
@@ -3844,6 +3860,17 @@ var Start = /*#__PURE__*/function (_React$Component) {
         });
         footer.push(declineButton);
       } else {
+        var _processData = {
+          fields: noAcceptProcessData.fields.concat(AcceptProcessData.fields)
+        };
+        var displayContentProcess = {
+          fields: _processData.fields,
+          data: this.state.reviewData.values.get_project
+        };
+        var _displayProcess = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_general_Displaycolumns__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          content: displayContentProcess
+        });
+        contentCard.push(_displayProcess);
         var submitButton = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_general_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
           text: "Continuar",
           className: "btn-success",

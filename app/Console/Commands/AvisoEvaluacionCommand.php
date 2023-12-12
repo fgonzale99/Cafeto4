@@ -66,8 +66,8 @@ class AvisoEvaluacionCommand extends Command
 
     public function handle()
     {
-        $primer_aviso=env('PRIMER_AVISO');
-        $segundo_aviso=env('SEGUNDO_AVISO');
+        $primer_aviso=config('constants.PRIMER_AVISO');
+        $segundo_aviso=config('constants.SEGUNDO_AVISO');
 
         $evaluaciones_1aviso=\App\Models\ProjectReview::
         with('getReviewer','getProject')

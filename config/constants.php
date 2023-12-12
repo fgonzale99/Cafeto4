@@ -1,6 +1,10 @@
 <?php return [
-    'URL' => 'http://127.0.0.1:8000'
-]
+    'URL' => 'http://Cafeto4.test',
+    'REPORTE_STANDAR' => 5,
+    'PRIMER_AVISO' =>3,
+    'SEGUNDO_AVISO' =>0
+
+];
 
 
 ?>

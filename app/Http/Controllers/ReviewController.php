@@ -243,7 +243,7 @@ class ReviewController extends Controller
 */
 
       //Format
-      $formatId = env('REPORTE_STANDAR_ID'); //5 ;// isset($review->getProject->formatReview) ? $review->getProject->formatReview : '5';
+      $formatId = config(constants.REPORTE_STANDAR);   //env('REPORTE_STANDAR_ID'); //5 ;// isset($review->getProject->formatReview) ? $review->getProject->formatReview : '5';
       $format = \App\Models\FormatReview::find($formatId);
 
       $contentModules = "";

@@ -58,9 +58,13 @@ class Start extends React.Component {
       }
 
       this.Continue = async (id) => {
+
         var pages = this.state.pages;
         var nextPage = pages[0].page;
         var redirect = '/review/form/' + this.state.moduleData.id + '/' + nextPage;
+
+          //vuelve al inicio autenticado
+        // var redirect = '/review/start/' + this.state.moduleData.id;
         window.location.href = redirect;
       }
     }
@@ -116,8 +120,30 @@ class Start extends React.Component {
     async startReview(e) {
       e.preventDefault()
 
+
       const form = document.getElementById("formAccept");
       const data = new FormData(form);
+  
+
+
+      //verifica que haya aceptado todas las condiciones
+      const allChecked = Array.from(form.querySelectorAll('input[type="checkbox"]')).every(
+        (checkbox) => checkbox.checked
+      );
+
+     
+            
+      if (!allChecked) {
+        alert('Por favor marque todas las opciones antes de aceptar');
+        return;
+      }
+
+
+
+
+
+
+     
       const res = await crudServices.update(data, this.state.moduleData);
 
       if (res.success) {
@@ -126,8 +152,12 @@ class Start extends React.Component {
 
         var reviewAccept = await reviewServices.reviewAccept(this.props.match.params.id);
 
+ 
+
         if (nextPage) {
-          var redirect = '/review/form/' + this.state.moduleData.id + '/' + nextPage;
+  //        var redirect = '/review/form/' + this.state.moduleData.id + '/' + nextPage;
+
+          var redirect = '/review/start/' + this.state.moduleData.id ;
           window.location.href = redirect;
         } else {
           alert(res.message)
@@ -225,8 +255,10 @@ class Start extends React.Component {
 
       const display = <Displaycolumns content={ displayContent } />;
       contentCard.push(display);
+  
 
-      var processData = {
+
+     var noAcceptProcessData = {
         fields:  [{
             "type": "select",
             "required": true,
@@ -234,7 +266,7 @@ class Start extends React.Component {
             "description": "Proceso",
             "placeholder": "Proceso",
             "className": "form-control",
-            "name": "process",
+            "name":  "process",
             "access": false,
             "multiple": false,
             "list": true,
@@ -249,8 +281,11 @@ class Start extends React.Component {
             "alias": "getProcess",
             "values": [
             ]
-          },
-          {
+          }]};
+
+          var AcceptProcessData = {
+            fields:  [{
+          
             "type": "file",
             "required": false,
             "label": "Documento Evaluación",
@@ -270,18 +305,28 @@ class Start extends React.Component {
           }]
       };
 
-      var displayContentProcess = {
-          fields: processData.fields,
-          data: this.state.reviewData.values.get_project,
-      };
-      const displayProcess = <Displaycolumns content={ displayContentProcess } />;
-      contentCard.push(displayProcess);
+
+
 
       if(this.state.reviewData.values.state=='Inactivo'){
 
+        const processData = noAcceptProcessData;
+  
+        var displayContentProcess = {
+            fields: processData.fields,
+            data: this.state.reviewData.values.get_project,
+        };
+        const displayProcess = <Displaycolumns content={ displayContentProcess } />;
+        contentCard.push(displayProcess);
+
+        
+
+
+      
         contentCard.push(<h5>Recuerde que para inicar la evaluación debe aceptar los términos y condiciones.</h5>);
 
         this.state.dataForm.fields = this.state.moduleData.fields;
+      
         const form = <Form data={ this.state.dataForm } onSubmit={ this.startReview.bind(this) } />;
         contentCard.push(form);
 
@@ -292,6 +337,20 @@ class Start extends React.Component {
         footer.push(declineButton);
 
       }else{
+
+
+        const processData = {
+          fields: noAcceptProcessData.fields.concat(AcceptProcessData.fields)
+        };
+  
+        var displayContentProcess = {
+            fields: processData.fields,
+            data: this.state.reviewData.values.get_project,
+        };
+        const displayProcess = <Displaycolumns content={ displayContentProcess } />;
+        contentCard.push(displayProcess);
+
+        
 
         var submitButton = <Button text="Continuar" className="btn-success" align="justify-content-center" onClick={ this.Continue.bind(this) } />;
         footer.push(submitButton);

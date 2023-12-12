@@ -148,6 +148,20 @@ class Finish extends React.Component {
       breadcrumb: breadData,
     };
 
+
+
+    if(this.state.reviewData.state == "Inactivo"){
+      alert('No ha aceptado la evaluación');
+
+
+      var redirect= '/review/start/' + this.state.reviewData.id;
+      window.location.href = redirect;
+
+
+      return false;
+    }
+
+
     const headerElement = <Header data={ headerContent }/>;
     header.push(headerElement);
 

@@ -3621,9 +3621,10 @@ var Page = /*#__PURE__*/function (_React$Component) {
               case 0:
                 e.preventDefault();
                 data = $("#formReview").serializeArray();
-                _context3.next = 4;
+                exist;
+                _context3.next = 5;
                 return _review_Services__WEBPACK_IMPORTED_MODULE_4__["default"].savePage(data, this.state.moduleData);
-              case 4:
+              case 5:
                 res = _context3.sent;
                 if (res.success) {
                   pages = this.state.pages;
@@ -3641,7 +3642,7 @@ var Page = /*#__PURE__*/function (_React$Component) {
                 } else {
                   alert(res.message);
                 }
-              case 6:
+              case 7:
               case "end":
                 return _context3.stop();
             }
@@ -3697,6 +3698,12 @@ var Page = /*#__PURE__*/function (_React$Component) {
         title: 'Evaluación Documento',
         breadcrumb: breadData
       };
+      if (this.state.reviewData.state == "Inactivo") {
+        alert('No ha aceptado la evaluación');
+        var redirect = '/review/start/' + this.state.reviewData.id;
+        window.location.href = redirect;
+        return false;
+      }
       var headerElement = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_general_Header__WEBPACK_IMPORTED_MODULE_10__["default"], {
         data: headerContent
       });

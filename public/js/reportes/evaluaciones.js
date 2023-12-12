@@ -224,7 +224,9 @@ const getRevisiones = async e => {
                   <td class="alignment-center">${revision.paymentState}</td>
                   <td class="alignment-center">
                       <a href="https://cafeto.cimaonline.com.co/review/reportcustom2/${revision.reviewId}" target="_blank"><i class="fa fa-chart-bar"></i></a>
-                  </td>
+                      <a href="https://cafeto.cimaonline.com.co/review/ethiccode/download/${revision.reviewId}" target="_blank"><i class="fa fa-balance-scale"></i></a>
+                 
+                      </td>
                 </tr>
                         `
         });

@@ -3671,6 +3671,12 @@ var Finish = /*#__PURE__*/function (_React$Component) {
         title: 'Evaluación Documento',
         breadcrumb: breadData
       };
+      if (this.state.reviewData.state == "Inactivo") {
+        alert('No ha aceptado la evaluación');
+        var redirect = '/review/start/' + this.state.reviewData.id;
+        window.location.href = redirect;
+        return false;
+      }
       var headerElement = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_general_Header__WEBPACK_IMPORTED_MODULE_10__["default"], {
         data: headerContent
       });
