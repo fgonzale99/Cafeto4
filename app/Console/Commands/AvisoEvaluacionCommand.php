@@ -134,7 +134,7 @@ class AvisoEvaluacionCommand extends Command
 
               $project_name=$record->getProject->name;
               $due_date=date('d \d\e M \d\e Y', strtotime($record->assignDate .' + '.$record->daysLimit.' days'));
-              $eval_url=env('APP_URL').'reviewer/projects?model=evaluaciones';
+              $eval_url=config('constants.URL').'/reviewer/projects?model=evaluaciones';
         
               //Enviar correos
               $notification['subject'] = 'Avanciencia-Cafeto recordatorio';
@@ -163,7 +163,7 @@ class AvisoEvaluacionCommand extends Command
               $notification_id=$this->notify($notification);
 
 
-              $notification['message'] .= "<img src='" .env('APP_URL'). "transparent_pixel/".$notification_id."'>";
+              $notification['message'] .= "<img src='" .config('constants.URL'). "/transparent_pixel/".$notification_id."'>";
 
 
 
@@ -186,7 +186,7 @@ class AvisoEvaluacionCommand extends Command
 
               $project_name=$record->getProject->name;
               $due_date=date('d \d\e M \d\e Y', strtotime($record->assignDate .' + '.$record->daysLimit.' days'));
-              $eval_url=env('APP_URL').'reviewer/projects?model=evaluaciones';
+              $eval_url=config('constants.URL').'/reviewer/projects?model=evaluaciones';
         
               //Enviar correos
               $notification['subject'] = 'Avanciencia-Cafeto debe finalizar hoy su evaluación';
@@ -212,7 +212,7 @@ class AvisoEvaluacionCommand extends Command
       
               $notification_id=$this->notify($notification);
 
-              $notification['message'] .= "<img src='".env('APP_URL')."transparent_pixel/".$notification_id."'>";
+              $notification['message'] .= "<img src='".config('constants.URL')."/transparent_pixel/".$notification_id."'>";
 
               
               $this->mailSend($notification);

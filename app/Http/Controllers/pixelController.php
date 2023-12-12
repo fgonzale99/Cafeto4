@@ -12,13 +12,9 @@ class pixelController extends Controller
     public function transparent_pixel($notificacion_id)
     {
  
-   //  header('Content-Type: image/png');
+     header('Content-Type: image/png');
      echo base64_decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=');
 
-
-
-
-   
 
         $notificacion=\App\Models\Notification::find($notificacion_id);
 
@@ -26,7 +22,7 @@ class pixelController extends Controller
 
         $notificacion->save();
 
-        dd($notificacion);
+    
 
 
     }
