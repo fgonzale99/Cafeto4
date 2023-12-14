@@ -28,6 +28,7 @@ class Kernel extends ConsoleKernel
 
 
         $schedule->command('aviso:evaluacion')->daily()->withoutOverlapping();
+     //   $schedule->command('aviso:evaluacion')->everyMinute()->withoutOverlapping();
 
 
       $schedule->call(function() {

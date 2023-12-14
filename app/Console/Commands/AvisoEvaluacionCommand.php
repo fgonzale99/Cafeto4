@@ -127,10 +127,10 @@ class AvisoEvaluacionCommand extends Command
         foreach($dataset as $key => $record)
         {
               $nombre=$record->getReviewer->name;
-          //    $email=$record->getReviewer->email;
+              $email=$record->getReviewer->email;
 
 
-              $email='fgonzale99@gmail.com';
+          //    $email='fgonzale99@gmail.com';
 
               $project_name=$record->getProject->name;
               $due_date=date('d \d\e M \d\e Y', strtotime($record->assignDate .' + '.$record->daysLimit.' days'));
@@ -178,9 +178,9 @@ class AvisoEvaluacionCommand extends Command
         foreach($dataset as $key => $record)
         {
               $nombre=$record->getReviewer->name;
-      //        $email=$record->getReviewer->email;
+              $email=$record->getReviewer->email;
 
-              $email='fgonzale99@gmail.com';
+      //        $email='fgonzale99@gmail.com';
 
 
 
