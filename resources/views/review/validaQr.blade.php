@@ -17,7 +17,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-                <img src="data:image/svg;base64,{{$imagenFirma}}" widht="80" height="80"/>
+                <img src="data:image/svg+xml;base64,{{$imagenFirma}}" width="80" height="80"/>
 				</div>
 				<div class="col-md-8">
                     <p>Evaluador(a): {{  $reviewerName }}</p>
