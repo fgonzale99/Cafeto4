@@ -241,6 +241,7 @@ class Board extends React.Component {
               {"name":"download","title":"Descargar Reporte","type":"link","target":"_blank","link":"/review/reportstandard/","class": "btn bg-gradient-warning btn-sm","list":"false","header":"true","element":"false"},
               {"name":"download","title":"Formato a la medida","type":"link","target":"_blank","link":"/review/reportcustom2/","class": "btn bg-gradient-info btn-sm","list":"false","header":"true","element":"false"}, 
               {"name":"ethicCode","title":"Código de Ética","type":"link","link":"/review/ethiccode/download/","target":"_blank","class": "btn bg-gradient-danger btn-sm","list":"false","header":"true","element":"false"},
+              {"name":"ethicCodeQr","title":"Código de Ética QR","type":"link","link":"/review/ethiccodeqr/download/","target":"_blank","class": "btn bg-gradient-warning btn-sm","list":"false","header":"true","element":"false"},
               {"name":"certificate","title":"Certificado","type":"link","link":"/review/certificate/create/","target":"_blank","class": "btn bg-gradient-teal btn-sm","list":"false","header":"true","element":"false"},
               {"name":"timeline","title":"Línea de Tiempo","type":"link","link":"/review/track/","class": "btn bg-gradient-success btn-sm","list":"false","header":"true","element":"false"}],
         linkComplement: this.props.match.params.id,

@@ -2774,6 +2774,16 @@ var Board = /*#__PURE__*/function (_React$Component) {
             "header": "true",
             "element": "false"
           }, {
+            "name": "ethicCodeQr",
+            "title": "Código de Ética QR",
+            "type": "link",
+            "link": "/review/ethiccodeqr/download/",
+            "target": "_blank",
+            "class": "btn bg-gradient-warning btn-sm",
+            "list": "false",
+            "header": "true",
+            "element": "false"
+          }, {
             "name": "certificate",
             "title": "Certificado",
             "type": "link",

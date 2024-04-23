@@ -16,12 +16,15 @@ use App\Http\Livewire\ShowProcesses;
 |
 */
 
+
+
 Auth::routes();
 
 
   Route::get('transparent_pixel/{notification_id}', [App\Http\Controllers\pixelController::class, 'transparent_pixel'])->name('transparent_pixel');
 
 
+  Route::get('review/verifyQrCode/{firmadatos}/{reviewId}/{fechaFirma}/{reviewerId}/{ip}', [App\Http\Controllers\pixelController::class, 'verifyQrCode'])->name('verifyQrCode');
 
 
 
@@ -173,6 +176,8 @@ Route::get('review/certificate/create/{id}', [App\Http\Controllers\ReviewControl
 Route::get('certificate/validate/{code}', [App\Http\Controllers\PublicController::class, 'certificateValidate'])->name('certificate.validate');
 
 Route::get('review/ethiccode/download/{id}', [App\Http\Controllers\ReviewController::class, 'ethiccode'])->name('review.ethiccode.download');
+
+Route::get('review/ethiccodeqr/download/{id}', [App\Http\Controllers\ReviewController::class, 'ethiccodeqr'])->name('review.ethiccodeqr.download');
 
 Route::get('review/list', [App\Http\Controllers\ReviewController::class, 'list'])->name('review.list');
 
