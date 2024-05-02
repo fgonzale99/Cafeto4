@@ -4,7 +4,7 @@ import Label from "./Label"
 class Number extends React.Component {
 
   render() {
-    console.log(this.props.data);
+    //console.log(this.props.data);
     return (
       <div className={"form-group " + this.props.class }>
         <Label data={ this.props.data } />

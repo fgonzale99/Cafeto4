@@ -164,7 +164,7 @@ class ReviewList extends React.Component {
     return (
       <>
         <Row content={ header }/>
-        <Row content={ content }/>
+        <Row  content={ content }/>
       </>
     )
   }

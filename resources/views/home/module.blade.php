@@ -20,7 +20,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-
+    <div id="notification-bubble"></div>
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
@@ -37,6 +37,7 @@
                 <i class="fa {{ $module->icon }}"></i>
               </div>
               @php
+          
                 $params = array();
                 if($module->params){
                   $params = (array) json_decode($module->params);

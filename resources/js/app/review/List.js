@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import crudServices from "../../app/crud/Services"
 import moduleServices from "../../app/general/services/Module"
 import reviewServices from "../review/Services"
@@ -51,12 +50,14 @@ class List extends React.Component {
     }
 
     this.onChangeFilter = async (e) => {
+
         const form = document.getElementById("filtersForm");
         const dataFilter = new FormData(form);
         const page = 1;
         const rest = await crudServices.list(this.state.moduleData, dataFilter, page);
         this.setState({ elementsList: rest.data});
         this.setState({ pages: rest.pagesTotal });
+
     }
 
     this.onChangePage = async (page, e) => {
@@ -82,7 +83,11 @@ class List extends React.Component {
                 props: moduleData.data.props,
                 name: this.state.moduleData.name
               }
+             
             });
+
+      
+            
 
             const res = await reviewServices.reviewerProjects(this.state.moduleData);
 
@@ -148,6 +153,9 @@ class List extends React.Component {
     }
 
     const filters = <Filters data={ filtersData } />
+
+
+    
     cardBody.push(filters);
 
     var tableContent = {

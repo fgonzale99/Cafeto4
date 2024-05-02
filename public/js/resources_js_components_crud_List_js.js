@@ -3499,7 +3499,7 @@ var Number = /*#__PURE__*/function (_React$Component) {
   _createClass(Number, [{
     key: "render",
     value: function render() {
-      console.log(this.props.data);
+      //console.log(this.props.data);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "form-group " + this.props["class"],
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -4585,7 +4585,7 @@ var Filters = /*#__PURE__*/function (_React$Component) {
           var inputContent = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_forms_Number__WEBPACK_IMPORTED_MODULE_2__["default"], {
             data: item,
             value: value,
-            "class": "input-group-sm col-lg-2 col-md-6 col-md-12 float-left",
+            "class": "input-group-sm col-lg-1 col-md-6 col-md-12 float-left",
             onChange: _this.props.data.onChangeFilter
           });
           break;

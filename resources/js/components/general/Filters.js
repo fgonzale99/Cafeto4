@@ -22,8 +22,13 @@ class Filters extends React.Component {
 
     var formContent = [];
 
+
+
     this.props.data.fields.map((item,i)=>{
 
+
+
+      
       let value = '';
       if(this.props.data.formValues[item.name]){
         value = this.props.data.formValues[item.name];
@@ -36,7 +41,7 @@ class Filters extends React.Component {
           var inputContent = <Input data={ item } value={ value } class="input-group-sm col-lg-2 col-md-6 col-md-12 float-left" onChange={ this.props.data.onChangeFilter } />;
           break;
         case 'number':
-          var inputContent = <Number data={ item } value={ value } class="input-group-sm col-lg-2 col-md-6 col-md-12 float-left" onChange={ this.props.data.onChangeFilter } />;
+          var inputContent = <Number data={ item } value={ value } class="input-group-sm col-lg-1 col-md-6 col-md-12 float-left" onChange={ this.props.data.onChangeFilter } />;
           break;
         case 'date':
           var inputContent = <DateField data={ item } value={ value } class="input-group-sm col-lg-2 col-md-6 col-md-12 float-left" onChange={ this.props.data.onChangeFilter } />;
@@ -79,6 +84,7 @@ class Filters extends React.Component {
     })
 
     this.formContent = formContent;
+
 
   }
 

@@ -438,7 +438,7 @@ return [
             'active' => true,
             'files' => [
                 [
-                    'type' => 'js',
+                    'type' => 'module',
                     'asset' => false,
                     'location' => '/js/bs-stepper.js',
                 ],

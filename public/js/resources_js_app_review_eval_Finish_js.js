@@ -4818,7 +4818,7 @@ var Number = /*#__PURE__*/function (_React$Component) {
   _createClass(Number, [{
     key: "render",
     value: function render() {
-      console.log(this.props.data);
+      //console.log(this.props.data);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "form-group " + this.props["class"],
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -5303,13 +5303,16 @@ var Signature = /*#__PURE__*/function (_React$Component) {
     }();
     _this.handleOnEnd = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
-        var img;
+        var isValid, img;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                img = _this.signaturePad.toDataURL("img/png");
-                document.getElementById(_this.props.data.name).value = img;
+                isValid = _this.hasComplexity(_this.signaturePad, 20);
+                if (isValid) {
+                  img = _this.signaturePad.toDataURL("img/png");
+                  document.getElementById(_this.props.data.name).value = img;
+                } else document.getElementById(_this.props.data.name).value = "";
               case 2:
               case "end":
                 return _context2.stop();
@@ -5324,6 +5327,16 @@ var Signature = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
   _createClass(Signature, [{
+    key: "hasComplexity",
+    value: function hasComplexity(pad, complexity) {
+      if (!complexity) {
+        complexity = 10;
+      }
+      var points = pad.toData();
+      var pointCount = [].concat.apply([], points).length;
+      return points && pointCount >= complexity;
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.signaturePad.clear();
@@ -5338,8 +5351,8 @@ var Signature = /*#__PURE__*/function (_React$Component) {
           data: this.props.data
         }, "label" + this.props.data.name), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_signature_pad_wrapper__WEBPACK_IMPORTED_MODULE_2__["default"], {
           options: {
-            minWidth: 8,
-            maxWidth: 12,
+            minWidth: 2,
+            maxWidth: 3,
             dotSize: 0.8,
             backgroundColor: 'rgb(220, 220, 220)',
             onEnd: this.handleOnEnd.bind(this)

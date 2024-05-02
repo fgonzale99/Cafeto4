@@ -3998,7 +3998,7 @@ var Number = /*#__PURE__*/function (_React$Component) {
   _createClass(Number, [{
     key: "render",
     value: function render() {
-      console.log(this.props.data);
+      //console.log(this.props.data);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "form-group " + this.props["class"],
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Label__WEBPACK_IMPORTED_MODULE_1__["default"], {

@@ -15,3 +15,4 @@ class NotificationBubble extends React.Component {
 
 export default NotificationBubble;
 ReactDOM.render(<NotificationBubble />, document.getElementById('notification-bubble'));
+ 
