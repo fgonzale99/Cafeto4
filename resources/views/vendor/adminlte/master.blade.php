@@ -78,7 +78,7 @@
 <body class="@yield('classes_body')" @yield('body_data')>
 
     {{-- Body Content --}}
-    <div id="notification-bubble"></div>
+    <div id="hidden notification-bubble"></div>
     @yield('body')
 
     {{-- Base Scripts --}}

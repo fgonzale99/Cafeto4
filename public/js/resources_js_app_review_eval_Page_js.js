@@ -3516,7 +3516,8 @@ var Page = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function () {
       var _componentDidMount = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var moduleData, res, infoModule, moduleProject, resProject, pagesList;
+        var _this2 = this;
+        var moduleData, res, infoModule, moduleProject, resProject, pagesList, selects;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -3598,6 +3599,16 @@ var Page = /*#__PURE__*/function (_React$Component) {
                   error: _context2.t0
                 });
               case 33:
+                //update conditionals
+
+                this.setStateFormElement();
+                selects = document.querySelectorAll('select');
+                selects.forEach(function (select) {
+                  select.addEventListener('change', function () {
+                    _this2.setStateFormElement();
+                  });
+                });
+              case 36:
               case "end":
                 return _context2.stop();
             }
@@ -3610,10 +3621,31 @@ var Page = /*#__PURE__*/function (_React$Component) {
       return componentDidMount;
     }()
   }, {
+    key: "setStateFormElement",
+    value: function setStateFormElement() {
+      var elements = document.querySelectorAll('[dependencia]');
+      elements.forEach(function (element) {
+        if (element.dependencia !== '') {
+          // Do something with the dependent element
+          var dependency = element.getAttribute('dependencia');
+          var enabledValue = element.getAttribute('condicion');
+          var parentElement = document.querySelector("select[name='" + dependency + "']"); // Targets first img element with src="image.jpg"
+
+          if (enabledValue != parentElement.value) {
+            element.disabled = true;
+            console.log('disabled');
+          } else {
+            element.disabled = false;
+            console.log('enabled');
+          }
+        }
+      });
+    }
+  }, {
     key: "saveReview",
     value: function () {
       var _saveReview = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(e) {
-        var _this2 = this;
+        var _this3 = this;
         var data, res, pages, currentIndex, redirect, nextPage;
         return _regeneratorRuntime().wrap(function _callee3$(_context3) {
           while (1) {
@@ -3629,7 +3661,7 @@ var Page = /*#__PURE__*/function (_React$Component) {
                   pages = this.state.pages;
                   currentIndex = '';
                   pages.map(function (item, i) {
-                    if (Number(item.page) == Number(_this2.state.moduleData.page)) currentIndex = i;
+                    if (Number(item.page) == Number(_this3.state.moduleData.page)) currentIndex = i;
                   });
                   if (currentIndex == this.state.pages.length - 1) {
                     redirect = '/review/finish/' + this.state.moduleData.id;
@@ -3670,7 +3702,7 @@ var Page = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
       var header = [];
       var content = [];
       var cardContent = [];
@@ -3719,14 +3751,14 @@ var Page = /*#__PURE__*/function (_React$Component) {
       dataStepper.push(step);
       this.state.pages.map(function (item, i) {
         var active = '';
-        if (item.page == _this3.state.moduleData.page) active = 'active';
+        if (item.page == _this4.state.moduleData.page) active = 'active';
         var step = {
           id: item.page,
           value: item.page,
           label: item.pageName,
           withLine: true,
           active: active,
-          link: '/review/form/' + _this3.state.moduleData.id + '/' + item.page
+          link: '/review/form/' + _this4.state.moduleData.id + '/' + item.page
         };
         dataStepper.push(step);
       });

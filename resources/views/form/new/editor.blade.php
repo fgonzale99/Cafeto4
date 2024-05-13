@@ -8,7 +8,7 @@
           <div class="step " data-target="#Crear"><a type="button" class="step-trigger" role="tab" aria-controls="logins-part" href="{{route('formreview.new_new',[$form_id])}}" id="Crearlogins-part-trigger"><span class="bs-stepper-circle">&lt;</span><span class="bs-stepper-label">Crear</span></a></div>
           <div class="line"></div>
 
-
+            <!-- modules -->
           @foreach($formDataDecoded as $key => $module)
           <div class="step {{$key==$module_id ? 'active': ''}}" data-target="#Módulo I"><a type="button" class="step-trigger" role="tab" aria-controls="logins-part" href="/formreview/neweditor/{{$form_id}}/{{$key}}" id="Módulo Ilogins-part-trigger"><span class="bs-stepper-circle">{{$key}}</span><span class="bs-stepper-label">{{$module['pageName']}}</span></a></div>
           <div class="line"></div>
@@ -82,7 +82,6 @@
     var fbTemplate = document.getElementById('fb-editor'),
       options = {
         typeUserAttrs: {
-
           textarea: {
             minlength: {
               label: 'Longitud Mínima',
@@ -90,7 +89,6 @@
               type: 'number'
             },
           },
-
           number: {
             min: {
               label: 'Min',
@@ -100,11 +98,21 @@
               label: 'Max',
               value: 10,
             },
-
             ponderacion: {
               label: 'ponderación',
               value: '1',
             },
+            dependencia: {
+              label: 'Dependencia',
+              value: '',
+              placeholder: 'Indique el nombre del componente del que depende',
+            },
+            condicion: {
+              label: 'Condición',
+              value: '',
+              placeholder: 'Indique el valor que habilita según dependencia',
+            },
+
             //  label: 'Número'
           },
           text: {
@@ -132,7 +140,7 @@
           locale: 'es-ES',
           location: '/js/form-builder-new/'
         },
-        disableFields: ['button', 'file', 'hidden', 'data'],
+        disableFields: ['button', 'file', 'hidden', 'data','autocomplete'],
         formData: '{!!  $encodedQuestions !!}',
 
       };

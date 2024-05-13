@@ -87,7 +87,62 @@ class Page extends React.Component {
       this.setState({ isLoading: false});
       this.setState({ error: error});
     }
+
+
+
+    //update conditionals
+
+    this.setStateFormElement();
+
+    const selects = document.querySelectorAll('select');
+
+    selects.forEach(select => {
+      select.addEventListener('change',() => {
+        this.setStateFormElement();
+      
+      });
+    });
+
+
+
   }
+
+
+
+
+
+  setStateFormElement()
+  {
+
+  const elements = document.querySelectorAll('[dependencia]');
+
+
+  elements.forEach(element => {
+    if (element.dependencia !== '') {
+      // Do something with the dependent element
+      var dependency= element.getAttribute('dependencia');
+      var enabledValue= element.getAttribute('condicion');
+      var parentElement = document.querySelector("select[name='"+dependency+"']");  // Targets first img element with src="image.jpg"
+      
+
+      if(enabledValue!=parentElement.value)
+      {
+        element.disabled=true;
+        console.log('disabled')
+      }
+      else
+      {
+        element.disabled=false;
+        console.log('enabled')
+      }
+
+
+    }
+  });
+}
+
+
+
 
 
     async saveReview(e) {

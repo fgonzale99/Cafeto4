@@ -62,6 +62,7 @@ class FormReviewController extends Controller
 
     public function neweditor($form_id = null, $module_id = null)
     {
+      
 //$elements = \App\Models\Form::orderBy('id','DESC')->paginate(20);
      $form = \App\Models\FormReview::find($form_id);
 
@@ -76,9 +77,7 @@ class FormReviewController extends Controller
         $moduleDecoded=$formDataDecoded[$module_id];
         $encodedQuestions=json_encode($moduleDecoded['questions'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-     //   dd($encodedQuestions);
 
-     //   $encodedQuestions=str_replace('\"','¨',$encodedQuestions);
     }
     else {
         $encodedQuestions=null;
