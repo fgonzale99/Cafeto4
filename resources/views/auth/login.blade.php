@@ -44,7 +44,7 @@
                 <input id="password" type="password" placeholder="Contraseña" class="form-control " name="password" required="" autocomplete="current-password">
               </div>
 
-  						<button type="submit" class="btn btn-social">
+  						<button type="submit" class="mt-2 btn btn-social">
   							Ingresar
   						</button>
   					</form>

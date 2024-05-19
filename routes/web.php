@@ -248,10 +248,12 @@ Route::get('process/payment/available/{id}', [App\Http\Controllers\ProcessContro
 
 Route::get('process/review/list', [App\Http\Controllers\ProcessController::class, 'reviewList'])->name('process.review.list');
 
+Route::get('process/list', [App\Http\Controllers\ProcessController::class, 'reviewListMaxBudgetF'])->name('process.list');
+
+
 Route::get('process/payment/list/{id}', [App\Http\Controllers\ProcessController::class, 'paymentList'])->name('process.payment.list');
 
 Route::get('review/payment/available/{id}', [App\Http\Controllers\ReviewController::class, 'paymentAvailable'])->name('review.payment.available');
-
 
 Route::get('customer/dashboard', [App\Http\Controllers\CustomerController::class, 'dashboard'])->name('customer.dashboard');
 
