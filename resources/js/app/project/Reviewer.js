@@ -39,18 +39,33 @@ class Reviewer extends React.Component {
     }
 
     this.saveReviewer = async (id) => {
-      //var yes = confirm("Confirme si desea asignar el evaluador al proceso actual.");
 
-      const form = document.getElementById("formAsign");
-      const data = new FormData(form);
-      const res = await reviewServices.assign(data, this.state.moduleData);
 
-      if (res.success) {
-          this.onCloseModal();
-          alert("La evaluación se asigno correctamente.");
-      }else{
-          alert(res.message);
+
+      const validateTopBudget = await reviewServices.validateTopBudget( this.state.moduleData);
+    
+      
+      if(!validateTopBudget)
+      {
+        alert('Se ha alcanzado el tope presupuestal para este proceso, no puede seguir asignando evaluadores');
+        return;
       }
+      else{
+
+        //var yes = confirm("Confirme si desea asignar el evaluador al proceso actual.");
+
+        const form = document.getElementById("formAsign");
+        const data = new FormData(form);
+        const res = await reviewServices.assign(data, this.state.moduleData);
+  
+        if (res.success) {
+            this.onCloseModal();
+            alert("La evaluación se asigno correctamente.");
+        }else{
+            alert(res.message);
+        }
+      }
+    
     }
 
     this.setReviewer = async (id) => {

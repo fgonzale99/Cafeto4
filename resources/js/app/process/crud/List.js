@@ -178,7 +178,7 @@ class List extends React.Component {
             
             ],
      data: this.state.elementsList,
-     actions: [ { name: 'show', title: 'Asignar Tope Presupuestal', type: 'link', link: '/process/show/', class: 'btn bg-gradient-info btn-sm' },
+     actions: [ { name: 'show', title: 'Asignar Tope Presupuestal', type: 'link', link: '/process/topBudget/', class: 'btn bg-gradient-info btn-sm' },
               ],
   };
 

@@ -88,6 +88,10 @@ Route::post('formreview/guarda_header',[App\Http\Controllers\FormReviewControlle
 
 Route::get('formreview/new_publish/{form_id}',[App\Http\Controllers\FormReviewController::class, 'new_publish'])->name('formreview.new_publish');
 
+//vertifia topes de presupuesto
+Route::get('formreview/process/validateTopBudget', [App\Http\Controllers\ProcessController::class, 'validateTopBudget'])->name('process.validateTopBudget');
+
+
 
 //verifica formulario distinto en un solo proceso
 
@@ -238,6 +242,10 @@ Route::get('process/budget/{id}', [App\Http\Controllers\ProcessController::class
 Route::get('process/edit/{id}', [App\Http\Controllers\ProcessController::class, 'edit'])->name('process.edit');
 
 
+Route::get('process/topBudget/{id}', [App\Http\Controllers\ProcessController::class, 'topBudget'])->name('process.topBudget');
+
+
+
 Route::get('process/board/{id}', [App\Http\Controllers\ProcessController::class, 'board'])->name('process.board');
 
 Route::get('process/matrix/{id}', [App\Http\Controllers\ProcessController::class, 'reviewsMatrix'])->name('process.matrix');
@@ -248,7 +256,7 @@ Route::get('process/payment/available/{id}', [App\Http\Controllers\ProcessContro
 
 Route::get('process/review/list', [App\Http\Controllers\ProcessController::class, 'reviewList'])->name('process.review.list');
 
-Route::get('process/list', [App\Http\Controllers\ProcessController::class, 'reviewListMaxBudgetF'])->name('process.list');
+Route::get('process/list', [App\Http\Controllers\ProcessController::class, 'reviewListMaxBudget'])->name('process.list');
 
 
 Route::get('process/payment/list/{id}', [App\Http\Controllers\ProcessController::class, 'paymentList'])->name('process.payment.list');

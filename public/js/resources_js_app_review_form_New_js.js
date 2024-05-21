@@ -3461,7 +3461,8 @@ var Input = /*#__PURE__*/function (_React$Component) {
           id: "" + this.props.data.name,
           placeholder: "" + this.props.data.placeholder,
           defaultValue: "" + this.props.value,
-          onChange: this.props.onChange ? this.props.onChange.bind(this) : null
+          onChange: this.props.onChange ? this.props.onChange.bind(this) : null,
+          readOnly: this.props.data.readonly ? true : false
         }, "input" + this.props.data.name)]
       }, "" + this.props.data.name);
     }

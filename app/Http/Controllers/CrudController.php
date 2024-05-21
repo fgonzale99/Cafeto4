@@ -187,6 +187,8 @@ class CrudController extends Controller
 
       $data = \App\Models\Module::whereRaw("LOWER(moduleName) LIKE ?", $module)->first();
 
+    
+
       if ($data) {
         $response['data']['model'] = $data->model;
         $response['data']['fields'] = json_decode($data->fields);

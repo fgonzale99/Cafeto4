@@ -12,6 +12,7 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Mail;
+use DB;
 
 class ProcessController extends Controller
 {
@@ -37,6 +38,56 @@ class ProcessController extends Controller
       return view('process.crud.main');
     }
 
+
+
+    public function topBudget($id ){
+      return view('process.crud.main');
+    }
+
+
+
+
+    public function validateTopBudget(Request $request){
+
+
+      $project=$request->id;
+      $project = \App\Models\Project::find($request->id);
+      $processBudget = $project->getProcess->topBudget;
+
+     
+
+
+        $results = DB::select('select 
+        SUM(COALESCE(feecustom,reviewFee.price )) as total
+        from projectReview
+        inner join process on projectReview.process=process.id
+        inner join reviewFee on reviewFee.id = process.feeReview
+        where process= ?', [$project->getProcess->id]);
+
+
+        $asignedProcessBudget=$results[0]->total;
+
+     //   dd($asignedProcessBudget);
+
+        if($asignedProcessBudget>$processBudget)
+        {
+          //si el presupuesto no  alcanza
+          return false;
+        }
+        else
+        {
+          return true;
+       }
+       
+
+
+
+      return false;
+    }
+
+
+
+    
     public function show(){
       return view('process.crud.main');
     }

@@ -2,6 +2,16 @@ const baseUrl = "/formreview"
 import axios from "axios";
 const formreview = {};
 
+
+
+formreview.validateTopBudget = async (moduleData) => {
+  const urlGet = baseUrl + "/process/validateTopBudget"
+  const res = await axios.get(urlGet, {params: {modelName: moduleData.model, id: moduleData.id, page: moduleData.page}})
+  .then(response=>{ return response.data })
+  .catch(error => { return error })
+  return res;
+}
+
 formreview.saveQuestions = async (data, moduleData) => {
   const urlSave= baseUrl + "/questions/save"
   const res = await axios.post(urlSave, data, {params: {modelName: moduleData.model, id: moduleData.id, page: moduleData.page}})

@@ -41,6 +41,7 @@ const ProjectBoard = lazy(() => import('./project/Board'));
 
 const ProcessNew = lazy(() => import('./process/New'));
 const ProcessList = lazy(() => import('./process/Crud/List'));
+const ProcessTopBudget = lazy(() => import('./process/TopBudget'));
 const ProcessBudget = lazy(() => import('./process/Budget'));
 const ProcessEdit = lazy(() => import('./process/Edit'));
 const ProcessBoard = lazy(() => import('./process/Board'));
@@ -98,7 +99,11 @@ function Cafeto(){
               <Route path="/process/new" component={ ProcessNew } />
               <Route path="/process/budget/:id" component={ ProcessBudget } />
               <Route path="/process/edit/:id" component={ ProcessEdit } />
+              
+              
+              
               <Route path="/process/list" component={ ProcessList } />
+              <Route path="/process/topBudget/:id" component={ ProcessTopBudget } />
               <Route path="/process/board/:id" component={ ProcessBoard } />
               <Route path="/process/payment/list/:id" component={ ProcessPaymentList } />
 

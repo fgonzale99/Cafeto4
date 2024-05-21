@@ -36,6 +36,7 @@ class Form extends React.Component {
       }
 
       switch(item.type) {
+        
         case 'text':
           var inputContent = <Input data={ item } value={ value } onChange="" />;
           break;

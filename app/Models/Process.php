@@ -9,7 +9,7 @@ class Process extends Model
 
     protected $table = 'process';
 
-    protected $fillable = ['name','description','dateStart','dateFinish','responsible','customer','fileProcess','ethicCode','feeReview','project_unisono_id','budget_reviewer_id','paymentState','state'];
+    protected $fillable = ['name','description','dateStart','dateFinish','responsible','customer','fileProcess','ethicCode','feeReview','project_unisono_id','budget_reviewer_id','paymentState','state','topBudgetDate','topBudget'];
 
     public function getCustomer()
     {

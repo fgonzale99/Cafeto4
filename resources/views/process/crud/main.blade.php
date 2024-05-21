@@ -6,7 +6,5 @@
 @endsection
 
 @section('js')
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+
 @endsection
