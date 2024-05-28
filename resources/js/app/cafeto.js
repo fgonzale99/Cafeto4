@@ -40,7 +40,7 @@ const ProjectBoard = lazy(() => import('./project/Board'));
 
 
 const ProcessNew = lazy(() => import('./process/New'));
-const ProcessList = lazy(() => import('./process/Crud/List'));
+const ProcessList = lazy(() => import('./process/crud/List'));
 const ProcessTopBudget = lazy(() => import('./process/TopBudget'));
 const ProcessBudget = lazy(() => import('./process/Budget'));
 const ProcessEdit = lazy(() => import('./process/Edit'));
