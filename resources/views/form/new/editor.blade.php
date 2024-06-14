@@ -110,7 +110,7 @@
             condicion: {
               label: 'Condición',
               value: '',
-              placeholder: 'Indique el valor que habilita según dependencia',
+              placeholder: 'Indique el valor que habilita según dependencia  ej: 2 habilita',
             },
 
             //  label: 'Número'
@@ -120,8 +120,32 @@
               label: 'Longitud Mínima',
               value: 0,
               type: 'number'
-            }
+            },
+            dependencia: {
+              label: 'Dependencia',
+              value: '',
+              placeholder: 'Indique el nombre del componente del que depende',
+            },
+            condicion: {
+              label: 'Condición',
+              value: '',
+              placeholder: 'Indique el valor que habilita según dependencia ej: 2 habilita',
+            },
           },
+          textarea: {
+         
+            dependencia: {
+              label: 'Dependencia',
+              value: '',
+              placeholder: 'Indique el nombre del componente del que depende',
+            },
+            condicion: {
+              label: 'Condición',
+              value: '',
+              placeholder: 'Indique el valor que habilita según dependencia ej: 2 habilita',
+            },
+          },
+
 
 
 

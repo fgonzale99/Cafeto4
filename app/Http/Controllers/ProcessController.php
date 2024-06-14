@@ -69,7 +69,7 @@ class ProcessController extends Controller
 
      //   dd($asignedProcessBudget);
 
-        if($asignedProcessBudget>$processBudget)
+  /*      if($asignedProcessBudget>$processBudget)
         {
           //si el presupuesto no  alcanza
           return false;
@@ -78,11 +78,11 @@ class ProcessController extends Controller
         {
           return true;
        }
-       
+    */   
 
 
 
-      return false;
+      return true;
     }
 
 
